@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Вход</title>
+  <style>
+    body {
+      background: url("../css/background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    #wblock {
+      background-color: black;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      border-radius: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function login() {
+      const inputs = document.querySelectorAll('input')
+      window.location.href = `../dynamic/_signin.php?name=${inputs[0].value}&password=${inputs[1].value}`
+    }
+    function get(name) {
+      if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+        return decodeURIComponent(name[1]);
+    }
+  </script>
+  <div id="wblock">
+    <h1>Вход</h1>
+    <input placeholder="login" type="text">
+    <input placeholder="password" type="password">
+    <button onclick="login()">Вход</button>
+    <p id="status"></p>
+    <script>
+      if (get('e')) {
+        document.getElementById("status").textContent = "Неверный логин или пароль";
+      };
+    </script>
+    <br><a href="../dynamic/about.php">На главную</a>
+  </div>
+</body>
+
+</html>

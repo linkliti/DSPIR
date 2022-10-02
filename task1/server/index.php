@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="ru">
 <head>
 <title>Hello world page</title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
