@@ -12,9 +12,9 @@
         <h1>Каталог</h1>
         <?php
         require_once '_helper.php';
-        $mysqli = openMysqli();
+        $mysqli = openmysqli();
         $mysqli->set_charset('utf8mb4');
-        $result = $mysqli->query("select * from " . toys);
+        $result = $mysqli->query("select * from " . 'toys');
         ?>
         <table cellspacing="0">
             <tr>
@@ -25,9 +25,9 @@
             <?php if ($result->num_rows > 0) foreach ($result as $toy) {
                 echo "
             <tr>
-                <td>" . $toy[title] . "</td>
-                <td>" . $toy[description] . "</td>
-                <td>" . $toy[cost] . " руб</td>
+                <td>" . $toy['title'] . "</td>
+                <td>" . $toy['description'] . "</td>
+                <td>" . $toy['cost'] . " руб</td>
             </tr>
             ";
             }

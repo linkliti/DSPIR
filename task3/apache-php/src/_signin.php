@@ -1,27 +1,27 @@
 <?php require_once '_helper.php';
-const cookie = 'auth';
 
 header('Access-Control-Allow-Origin: *');
 
-$name = $_GET[name];
-$password = $_GET[password];
-if (strlen($name) === 0 || strlen($password) === 0) {
+$name = $_GET['name'];
+$password = $_GET['password'];
+// Пустые логин пароль
+if (!$name || !$password) {
     header('Location: ' . '../static/signin.html?e=1');
 }
 
-$mysqli = openMysqli();
-$statement = $mysqli->prepare(sprintf(
-    'select %s from %s where name = ? and password = ?',
-    id,
-    users
-));
+$mysqli = openmysqli();
+// Подготовка и отправка запроса
+$statement = $mysqli->prepare(
+    'select ID from users where name = ? and password = ?'
+);
 $statement->bind_param('ss', $name, $password);
 $statement->execute();
+// Есть в списке пользователей
 $result = $statement->get_result()->num_rows === 1;
 $mysqli->close();
 
 if ($result) {
-    setcookie(cookie, strval(rand(0, 9)));
+    setcookie('auth', strval(rand(0, 9)));
     header('Location: ' . '../dynamic/admin.php');
 } else {
     header('Location: ' . '../static/signin.html?e=1');

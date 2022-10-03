@@ -12,8 +12,8 @@
         <h1>Список пользователей</h1>
         <?php
         require_once '_helper.php';
-        $mysqli = openMysqli();
-        $users = $mysqli->query('select * from ' . users);
+        $mysqli = openmysqli();
+        $users = $mysqli->query('select * from ' . 'users');
         ?>
         <table cellspacing="0">
             <tr>
@@ -24,9 +24,9 @@
             <?php foreach ($users as $user) {
                 echo "
             <tr>
-                <td>{$user[id]}</td>
-                <td>{$user[name]}</td>
-                <td>{$user[password]}</td>
+                <td>{$user['ID']}</td>
+                <td>{$user['name']}</td>
+                <td>{$user['password']}</td>
             </tr>
             ";
             }; ?>

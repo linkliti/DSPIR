@@ -23,14 +23,14 @@ CREATE TABLE IF NOT EXISTS toys (
 INSERT INTO users (name, password)
 SELECT *
 FROM (
-        SELECT 'admin',
-            'pass'
+        SELECT 'iamadmin',
+            'mypass'
     ) AS temp
 WHERE NOT EXISTS (
         SELECT name
         FROM users
-        WHERE name = 'admin'
-            AND password = 'pass'
+        WHERE name = 'iamadmin'
+            AND password = 'mypass'
     )
 LIMIT 1;
 -- Toys
