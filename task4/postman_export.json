@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "fd72b396-e6f7-4330-9525-fe30ac35c5f7",
+		"name": "API TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Добавить зайца",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php?mode=add&name=Заяц&desc=Очень пушистый заяц&cost=1080",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "add"
+						},
+						{
+							"key": "name",
+							"value": "Заяц"
+						},
+						{
+							"key": "desc",
+							"value": "Очень пушистый заяц"
+						},
+						{
+							"key": "cost",
+							"value": "1080"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Убрать амогуса",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php?mode=remove&name=Амогус",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "remove"
+						},
+						{
+							"key": "name",
+							"value": "Амогус"
+						},
+						{
+							"key": "name",
+							"value": "Заяц",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить инфу о Эмодзи",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php?mode=get&name=Эмодзи",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "get"
+						},
+						{
+							"key": "name",
+							"value": "Эмодзи"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновить цену на Эмодзи",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php?mode=update&name=Эмодзи&cost=690",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "update"
+						},
+						{
+							"key": "name",
+							"value": "Эмодзи"
+						},
+						{
+							"key": "cost",
+							"value": "690"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить друга",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php?mode=add&name=drug&pass=12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "add"
+						},
+						{
+							"key": "name",
+							"value": "drug"
+						},
+						{
+							"key": "pass",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "drug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php?mode=remove&name=login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "remove"
+						},
+						{
+							"key": "name",
+							"value": "login"
+						},
+						{
+							"key": "name",
+							"value": "iamadmin",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Поменять пароль User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "drug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php?mode=update&name=user&pass=active",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "update"
+						},
+						{
+							"key": "name",
+							"value": "user"
+						},
+						{
+							"key": "pass",
+							"value": "active"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть ID 1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "drug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php?mode=get&id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "get"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
