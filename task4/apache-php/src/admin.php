@@ -19,7 +19,7 @@
             <tr>
                 <th>Номер</th>
                 <th>Логин</th>
-                <th>Зашифрованный пароль</th>
+                <th>Хеш пароля</th>
             </tr>
             <?php foreach ($users as $user) {
                 echo "

@@ -1,34 +1,32 @@
 <?php require_once '../_helper.php';
 // Mode
-if (array_key_exists('mode', $_GET)) {
-    // try {
-    generatePass('iamadmin', 'mypass');
-    switch ($_GET['mode']) {
-        case 'add':
+try {
+    switch ($_SERVER['REQUEST_METHOD']) {
+        case 'POST':
             addUser();
             break;
-        case 'remove':
+        case 'DELETE':
             removeUser();
             break;
-        case 'update':
+        case 'PUT':
             updateUserPassword();
             break;
-        case 'get':
+        case 'GET':
             getUserByID();
             break;
+        default:
+            outputStatus(2, 'Invalid Mode');
     }
-    /*
-    }
-    catch (Exception $e) {
-        $message = $e->getMessage();
-        outputStatus(2, $message);
-    }
-    */
-} else {
-    echo 'Invalid mode';
+}
+catch (Exception $e) {
+    $message = $e->getMessage();
+    outputStatus(2, $message);
 };
 
 function addUser() {
+    if (!isset($_GET['name']) || !isset($_GET['pass'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $usrName = $_GET['name'];
     $usrPass = $_GET['pass'];
@@ -48,6 +46,9 @@ function addUser() {
 }
 function removeUser()
 {
+    if (!isset($_GET['name'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $usrName = $_GET['name'];
     $result = $mysqli->query("SELECT * FROM users WHERE name = '{$usrName}';");
@@ -64,6 +65,9 @@ function removeUser()
 }
 function updateUserPassword()
 {
+    if (!isset($_GET['name']) || !isset($_GET['pass'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $usrName = $_GET['name'];
     $usrPass = $_GET['pass'];
@@ -82,6 +86,9 @@ function updateUserPassword()
 }
 function getUserByID()
 {
+    if (!isset($_GET['id'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $usrID = $_GET['id'];
     $result = $mysqli->query("SELECT * FROM users WHERE ID = '{$usrID}';");

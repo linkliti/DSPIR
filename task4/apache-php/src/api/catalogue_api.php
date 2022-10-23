@@ -1,34 +1,34 @@
 <?php require_once '../_helper.php';
 // Mode
-if (array_key_exists('mode', $_GET)) {
-    // try {
-        switch ($_GET['mode']) {
-            case 'add':
-                addItem();
-                break;
-            case 'remove':
-                removeItemByName();
-                break;
-            case 'update':
-                updateItemCostByName();
-                break;
-            case 'get':
-                getItemByName();
-                break;
-        }
-    /*
+try {
+    switch ($_SERVER['REQUEST_METHOD']) {
+        case 'POST':
+            addItem();
+            break;
+        case 'DELETE':
+            removeItemByName();
+            break;
+        case 'PUT':
+            updateItemCostByName();
+            break;
+        case 'GET':
+            getItemByName();
+            break;
+        default:
+            outputStatus(2, 'Invalid Mode');
     }
-    catch (Exception $e) {
-        $message = $e->getMessage();
-        outputStatus(2, $message);
-    }
-    */
-} else {
-    echo 'Invalid mode';
-};
+}
+catch (Exception $e) {
+    $message = $e->getMessage();
+    outputStatus(2, $message);
+}
+
 
 function addItem()
 {
+    if (!isset($_GET['name']) || !isset($_GET['cost']) || !isset($_GET['desc'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $toyName = $_GET['name'];
     $toyDesc = $_GET['desc'];
@@ -49,6 +49,9 @@ function addItem()
 }
 function removeItemByName()
 {
+    if (!isset($_GET['name'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $toyName = $_GET['name'];
     $result = $mysqli->query("SELECT * FROM toys WHERE title = '{$toyName}';");
@@ -65,6 +68,9 @@ function removeItemByName()
 }
 function updateItemCostByName()
 {
+    if (!isset($_GET['name']) || !isset($_GET['cost'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $toyName = $_GET['name'];
     $toyCost = $_GET['cost'];
@@ -82,9 +88,13 @@ function updateItemCostByName()
 }
 function getItemByName()
 {
+    if (!isset($_GET['name'])) {
+        throw new Exception("No input provided");
+    }
     $mysqli = openMysqli();
     $toyName = $_GET['name'];
-    $result = $mysqli->query("SELECT * FROM toys WHERE title = '{$toyName}';");
+    $query = "SELECT * FROM toys WHERE title = '{$toyName}';";
+    $result = $mysqli->query($query);
     if ($result->num_rows === 1) {
         foreach ($result as $toy) {
             echo "{status: 0, name: '" . $toy['title'] . "', description: '" . $toy['description'] . "', cost: " . $toy['cost'] . "}";

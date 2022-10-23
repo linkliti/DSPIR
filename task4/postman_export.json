@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fd72b396-e6f7-4330-9525-fe30ac35c5f7",
+		"_postman_id": "6a6e97fc-4d89-4d79-9e5a-b9c02b36c099",
 		"name": "API TEST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -26,7 +26,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?mode=add&name=Заяц&desc=Очень пушистый заяц&cost=1080",
+					"raw": "http://localhost:8082/api/catalogue_api.php?name=Заяц&desc=Очень пушистый заяц&cost=1080",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -38,20 +38,19 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "add"
-						},
-						{
 							"key": "name",
-							"value": "Заяц"
+							"value": "Заяц",
+							"description": "Название игрушки"
 						},
 						{
 							"key": "desc",
-							"value": "Очень пушистый заяц"
+							"value": "Очень пушистый заяц",
+							"description": "Описание игрушки"
 						},
 						{
 							"key": "cost",
-							"value": "1080"
+							"value": "1080",
+							"description": "Стоимость игрушки"
 						}
 					]
 				}
@@ -76,10 +75,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?mode=remove&name=Амогус",
+					"raw": "http://localhost:8082/api/catalogue_api.php?name=Амогус",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -91,17 +90,9 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "remove"
-						},
-						{
 							"key": "name",
-							"value": "Амогус"
-						},
-						{
-							"key": "name",
-							"value": "Заяц",
-							"disabled": true
+							"value": "Амогус",
+							"description": "Название игрушки"
 						}
 					]
 				}
@@ -126,10 +117,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?mode=get&name=Эмодзи",
+					"raw": "http://localhost:8082/api/catalogue_api.php?name=Эмодзи",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,12 +132,9 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "get"
-						},
-						{
 							"key": "name",
-							"value": "Эмодзи"
+							"value": "Эмодзи",
+							"description": "Название игрушки"
 						}
 					]
 				}
@@ -171,10 +159,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?mode=update&name=Эмодзи&cost=690",
+					"raw": "http://localhost:8082/api/catalogue_api.php?name=Эмодзи&cost=690",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -186,16 +174,14 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "update"
-						},
-						{
 							"key": "name",
-							"value": "Эмодзи"
+							"value": "Эмодзи",
+							"description": "Название игрушки"
 						},
 						{
 							"key": "cost",
-							"value": "690"
+							"value": "690",
+							"description": "Новая цена"
 						}
 					]
 				}
@@ -223,7 +209,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?mode=add&name=drug&pass=12345",
+					"raw": "http://localhost:8082/api/admin_api.php?name=drug&pass=12345",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -235,16 +221,14 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "add"
-						},
-						{
 							"key": "name",
-							"value": "drug"
+							"value": "drug",
+							"description": "Имя пользователя"
 						},
 						{
 							"key": "pass",
-							"value": "12345"
+							"value": "12345",
+							"description": "Пароль"
 						}
 					]
 				}
@@ -269,10 +253,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?mode=remove&name=login",
+					"raw": "http://localhost:8082/api/admin_api.php?name=login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -284,17 +268,9 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "remove"
-						},
-						{
 							"key": "name",
-							"value": "login"
-						},
-						{
-							"key": "name",
-							"value": "iamadmin",
-							"disabled": true
+							"value": "login",
+							"description": "Имя пользователя"
 						}
 					]
 				}
@@ -319,10 +295,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?mode=update&name=user&pass=active",
+					"raw": "http://localhost:8082/api/admin_api.php?name=user&pass=active",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -334,16 +310,14 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "update"
-						},
-						{
 							"key": "name",
-							"value": "user"
+							"value": "user",
+							"description": "Имя пользователя"
 						},
 						{
 							"key": "pass",
-							"value": "active"
+							"value": "active",
+							"description": "Новый пароль"
 						}
 					]
 				}
@@ -368,10 +342,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?mode=get&id=1",
+					"raw": "http://localhost:8082/api/admin_api.php?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -383,12 +357,9 @@
 					],
 					"query": [
 						{
-							"key": "mode",
-							"value": "get"
-						},
-						{
 							"key": "id",
-							"value": "1"
+							"value": "1",
+							"description": "Номер пользователя"
 						}
 					]
 				}
