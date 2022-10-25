@@ -8,7 +8,7 @@ try {
         case 'DELETE':
             removeItemByName();
             break;
-        case 'PUT':
+        case 'PATCH':
             updateItemCostByName();
             break;
         case 'GET':
@@ -26,13 +26,15 @@ catch (Exception $e) {
 
 function addItem()
 {
-    if (!isset($_GET['name']) || !isset($_GET['cost']) || !isset($_GET['desc'])) {
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    if (!isset($data['name']) || !isset($data['cost']) || !isset($data['desc'])) {
         throw new Exception("No input provided");
     }
+    $toyName = $data['name'];
+    $toyDesc = $data['desc'];
+    $toyCost = $data['cost'];
     $mysqli = openMysqli();
-    $toyName = $_GET['name'];
-    $toyDesc = $_GET['desc'];
-    $toyCost = $_GET['cost'];
     $result = $mysqli->query("SELECT * FROM toys WHERE title = '{$toyName}';");
     if ($result->num_rows === 1) {
         $message = $toyName . ' already exists';
@@ -49,11 +51,13 @@ function addItem()
 }
 function removeItemByName()
 {
-    if (!isset($_GET['name'])) {
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    if (!isset($data['name'])) {
         throw new Exception("No input provided");
     }
     $mysqli = openMysqli();
-    $toyName = $_GET['name'];
+    $toyName = $data['name'];
     $result = $mysqli->query("SELECT * FROM toys WHERE title = '{$toyName}';");
     if ($result->num_rows === 1) {
         $query = "DELETE FROM toys WHERE title = '" . $toyName . "';";
@@ -68,12 +72,14 @@ function removeItemByName()
 }
 function updateItemCostByName()
 {
-    if (!isset($_GET['name']) || !isset($_GET['cost'])) {
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    if (!isset($data['name']) || !isset($data['cost'])) {
         throw new Exception("No input provided");
     }
     $mysqli = openMysqli();
-    $toyName = $_GET['name'];
-    $toyCost = $_GET['cost'];
+    $toyName = $data['name'];
+    $toyCost = $data['cost'];
     $result = $mysqli->query("SELECT * FROM toys WHERE title = '{$toyName}';");
     if ($result->num_rows === 1) {
         $query = "UPDATE toys SET cost = " . $toyCost . " WHERE title = '" . $toyName . "';";

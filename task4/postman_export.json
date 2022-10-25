@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6a6e97fc-4d89-4d79-9e5a-b9c02b36c099",
+		"_postman_id": "cca6dc64-53e6-4129-a1e6-342b51dca2b0",
 		"name": "API TEST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,8 +25,17 @@
 				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Заяц\",\r\n    \"desc\": \"Очень пушистый заяц\",\r\n    \"cost\": \"1080\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?name=Заяц&desc=Очень пушистый заяц&cost=1080",
+					"raw": "http://localhost:8082/api/catalogue_api.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -40,17 +49,20 @@
 						{
 							"key": "name",
 							"value": "Заяц",
-							"description": "Название игрушки"
+							"description": "Название игрушки",
+							"disabled": true
 						},
 						{
 							"key": "desc",
 							"value": "Очень пушистый заяц",
-							"description": "Описание игрушки"
+							"description": "Описание игрушки",
+							"disabled": true
 						},
 						{
 							"key": "cost",
 							"value": "1080",
-							"description": "Стоимость игрушки"
+							"description": "Стоимость игрушки",
+							"disabled": true
 						}
 					]
 				}
@@ -77,8 +89,17 @@
 				},
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Амогус\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?name=Амогус",
+					"raw": "http://localhost:8082/api/catalogue_api.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -92,7 +113,8 @@
 						{
 							"key": "name",
 							"value": "Амогус",
-							"description": "Название игрушки"
+							"description": "Название игрушки",
+							"disabled": true
 						}
 					]
 				}
@@ -159,10 +181,19 @@
 						}
 					]
 				},
-				"method": "PUT",
+				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Эмодзи\",\r\n    \"cost\": \"690\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/api/catalogue_api.php?name=Эмодзи&cost=690",
+					"raw": "http://localhost:8082/api/catalogue_api.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,12 +207,14 @@
 						{
 							"key": "name",
 							"value": "Эмодзи",
-							"description": "Название игрушки"
+							"description": "Название игрушки",
+							"disabled": true
 						},
 						{
 							"key": "cost",
 							"value": "690",
-							"description": "Новая цена"
+							"description": "Новая цена",
+							"disabled": true
 						}
 					]
 				}
@@ -208,8 +241,17 @@
 				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"drug\",\r\n    \"pass\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?name=drug&pass=12345",
+					"raw": "http://localhost:8082/api/admin_api.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -223,12 +265,14 @@
 						{
 							"key": "name",
 							"value": "drug",
-							"description": "Имя пользователя"
+							"description": "Имя пользователя",
+							"disabled": true
 						},
 						{
 							"key": "pass",
 							"value": "12345",
-							"description": "Пароль"
+							"description": "Пароль",
+							"disabled": true
 						}
 					]
 				}
@@ -255,8 +299,17 @@
 				},
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"login\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?name=login",
+					"raw": "http://localhost:8082/api/admin_api.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -270,7 +323,8 @@
 						{
 							"key": "name",
 							"value": "login",
-							"description": "Имя пользователя"
+							"description": "Имя пользователя",
+							"disabled": true
 						}
 					]
 				}
@@ -295,10 +349,19 @@
 						}
 					]
 				},
-				"method": "PUT",
+				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"user\",\r\n    \"pass\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/api/admin_api.php?name=user&pass=active",
+					"raw": "http://localhost:8082/api/admin_api.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -312,12 +375,14 @@
 						{
 							"key": "name",
 							"value": "user",
-							"description": "Имя пользователя"
+							"description": "Имя пользователя",
+							"disabled": true
 						},
 						{
 							"key": "pass",
 							"value": "active",
-							"description": "Новый пароль"
+							"description": "Новый пароль",
+							"disabled": true
 						}
 					]
 				}

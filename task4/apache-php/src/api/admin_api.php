@@ -8,7 +8,7 @@ try {
         case 'DELETE':
             removeUser();
             break;
-        case 'PUT':
+        case 'PATCH':
             updateUserPassword();
             break;
         case 'GET':
@@ -24,12 +24,14 @@ catch (Exception $e) {
 };
 
 function addUser() {
-    if (!isset($_GET['name']) || !isset($_GET['pass'])) {
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    if (!isset($data['name']) || !isset($data['pass'])) {
         throw new Exception("No input provided");
     }
     $mysqli = openMysqli();
-    $usrName = $_GET['name'];
-    $usrPass = $_GET['pass'];
+    $usrName = $data['name'];
+    $usrPass = $data['pass'];
     $result = $mysqli->query("SELECT * FROM users WHERE name = '{$usrName}';");
     if ($result->num_rows === 1) {
         $message = 'User '. $usrName . ' already exists';
@@ -46,11 +48,13 @@ function addUser() {
 }
 function removeUser()
 {
-    if (!isset($_GET['name'])) {
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    if (!isset($data['name'])) {
         throw new Exception("No input provided");
     }
     $mysqli = openMysqli();
-    $usrName = $_GET['name'];
+    $usrName = $data['name'];
     $result = $mysqli->query("SELECT * FROM users WHERE name = '{$usrName}';");
     if ($result->num_rows === 1) {
         $query = "DELETE FROM users WHERE name = '" . $usrName . "';";
@@ -65,12 +69,14 @@ function removeUser()
 }
 function updateUserPassword()
 {
-    if (!isset($_GET['name']) || !isset($_GET['pass'])) {
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    if (!isset($data['name']) || !isset($data['pass'])) {
         throw new Exception("No input provided");
     }
     $mysqli = openMysqli();
-    $usrName = $_GET['name'];
-    $usrPass = $_GET['pass'];
+    $usrName = $data['name'];
+    $usrPass = $data['pass'];
     $result = $mysqli->query("SELECT * FROM users WHERE name = '{$usrName}';");
     if ($result->num_rows === 1) {
         $usrPass = generatePass($usrName, $usrPass);
