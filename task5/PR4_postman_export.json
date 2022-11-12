@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "cca6dc64-53e6-4129-a1e6-342b51dca2b0",
+		"name": "API TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Добавить зайца",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Заяц\",\r\n    \"desc\": \"Очень пушистый заяц\",\r\n    \"cost\": \"1080\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Заяц",
+							"description": "Название игрушки",
+							"disabled": true
+						},
+						{
+							"key": "desc",
+							"value": "Очень пушистый заяц",
+							"description": "Описание игрушки",
+							"disabled": true
+						},
+						{
+							"key": "cost",
+							"value": "1080",
+							"description": "Стоимость игрушки",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Убрать амогуса",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Амогус\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Амогус",
+							"description": "Название игрушки",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить инфу о Эмодзи",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php?name=Эмодзи",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Эмодзи",
+							"description": "Название игрушки"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновить цену на Эмодзи",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Эмодзи\",\r\n    \"cost\": \"690\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/catalogue_api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"catalogue_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Эмодзи",
+							"description": "Название игрушки",
+							"disabled": true
+						},
+						{
+							"key": "cost",
+							"value": "690",
+							"description": "Новая цена",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить друга",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "iamadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"drug\",\r\n    \"pass\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "drug",
+							"description": "Имя пользователя",
+							"disabled": true
+						},
+						{
+							"key": "pass",
+							"value": "12345",
+							"description": "Пароль",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "drug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"login\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "login",
+							"description": "Имя пользователя",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Поменять пароль User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "drug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"user\",\r\n    \"pass\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user",
+							"description": "Имя пользователя",
+							"disabled": true
+						},
+						{
+							"key": "pass",
+							"value": "active",
+							"description": "Новый пароль",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть ID 1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "drug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/admin_api.php?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"admin_api.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "Номер пользователя"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,46 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: url("/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#header {
+    padding: 20px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+#wblock {
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+th {
+    border: 1px solid red;
+    padding: 10px
+}
+
+td {
+    border-top: none;
+    padding: 10px
+}
+
+a {
+    text-decoration: none;
+    border-radius: 100px;
+}
+
+.filelink {
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+

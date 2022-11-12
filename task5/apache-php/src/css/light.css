@@ -1,0 +1,22 @@
+body {
+    background-color: white;
+    color: black;
+}
+
+#wblock, #header {
+    background-color: white;
+}
+
+th {
+    color: black;
+}
+
+td {
+    color: black;
+    border: 1px solid black;
+}
+
+a {
+    color: black;
+    border: 1px solid black;
+}
