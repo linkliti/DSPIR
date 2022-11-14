@@ -37,15 +37,6 @@ else if ($fileType != "pdf") {
 if ($uploadOk == 1) {
     if (move_uploaded_file($_FILES['userfile']['tmp_name'], $target_file)) {
         echo "Файл " . htmlspecialchars(basename($_FILES["userfile"]["name"])) . " был успешно загружен.";
-        $notFakePDF = strripos($ext[0], 'pdf document');
-        if ($notFakePDF == True) {
-            echo "Файл успешно загружен.\n";
-        } else {
-            $temp = array();
-            exec('rm ' . $target_file, $temp);
-            echo "Недействительный PDF файл: ";
-            echo mb_substr($ext[0], strripos($ext[0], ': ') + 2);
-        }
     } else {
         echo "Ошибка при загрузке файла.\n";
     }
